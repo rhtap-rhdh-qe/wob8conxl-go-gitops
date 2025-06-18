@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: wob8conxl-go
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: wob8conxl-go 
+  name: wob8conxl-go
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: wob8conxl-go
+    weight: 100 
